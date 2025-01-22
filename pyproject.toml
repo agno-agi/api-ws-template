@@ -1,5 +1,5 @@
 [project]
-name = "agent-api"
+name = "api-ws-template"
 version = "0.1.0"
 requires-python = ">=3.9"
 readme = "README.md"

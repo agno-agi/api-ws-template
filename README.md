@@ -1,4 +1,4 @@
-## Api WS Template
+## Api Workspace Template
 
 This repo contains the code for running an agent-api and supports 2 environments:
 
@@ -36,7 +36,7 @@ cp -r workspace/example_secrets workspace/secrets
 cp example.env .env
 ```
 
-## Run Agent Api locally
+## Run Api Workspace Template locally
 
 1. Install [docker desktop](https://www.docker.com/products/docker-desktop)
 
