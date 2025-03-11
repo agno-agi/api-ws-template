@@ -27,17 +27,6 @@ if [[ "$WAIT_FOR_REDIS" = true || "$WAIT_FOR_REDIS" = True ]]; then
 fi
 
 ############################################################################
-# Install requirements
-############################################################################
-
-if [[ "$INSTALL_REQUIREMENTS" = true || "$INSTALL_REQUIREMENTS" = True ]]; then
-  echo "++++++++++++++++++++++++++++++++++++++++++++++++++++++++"
-  echo "Installing requirements: $REQUIREMENTS_FILE_PATH"
-  pip3 install -r $REQUIREMENTS_FILE_PATH
-  echo "++++++++++++++++++++++++++++++++++++++++++++++++++++++++"
-fi
-
-############################################################################
 # Migrate database
 ############################################################################
 

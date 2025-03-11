@@ -1,8 +1,8 @@
 from typing import Optional
 
 from agno.agent import Agent
-from agno.models.openai import OpenAIChat
 from agno.knowledge.agent import AgentKnowledge
+from agno.models.openai import OpenAIChat
 from agno.storage.agent.postgres import PostgresAgentStorage
 from agno.tools.duckduckgo import DuckDuckGoTools
 from agno.vectordb.pgvector import PgVector, SearchType

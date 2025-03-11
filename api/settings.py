@@ -1,8 +1,8 @@
 from typing import List, Optional
 
-from pydantic import field_validator, Field
-from pydantic_settings import BaseSettings
+from pydantic import Field, field_validator
 from pydantic_core.core_schema import FieldValidationInfo
+from pydantic_settings import BaseSettings
 
 
 class ApiSettings(BaseSettings):

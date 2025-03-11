@@ -1,4 +1,5 @@
 from os import getenv
+
 from agno.playground import Playground
 
 from agents.example import get_example_agent

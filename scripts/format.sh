@@ -1,7 +1,7 @@
 #!/bin/bash
 
 ############################################################################
-# Format workspace using ruff
+# Format the workspace using ruff
 # Usage: ./scripts/format.sh
 ############################################################################
 
@@ -10,5 +10,9 @@ REPO_ROOT="$(dirname $CURR_DIR)"
 source ${CURR_DIR}/_utils.sh
 
 print_heading "Formatting workspace..."
+
 print_heading "Running: ruff format ${REPO_ROOT}"
 ruff format ${REPO_ROOT}
+
+print_heading "Running: ruff check --select I --fix ${REPO_ROOT}"
+ruff check --select I --fix ${REPO_ROOT}

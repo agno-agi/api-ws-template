@@ -1,6 +1,6 @@
 ## Api Workspace Template
 
-This repo contains the code for running an agent-api and supports 2 environments:
+This repo contains the code for running the Agno API Workspace Template and supports 2 environments:
 
 1. **dev**: A development environment running locally on docker
 2. **prd**: A production environment running on AWS ECS
@@ -18,19 +18,13 @@ This repo contains the code for running an agent-api and supports 2 environments
 source .venv/bin/activate
 ```
 
-3. Setup workspace:
-
-```sh
-ag ws setup
-```
-
-4. Copy `workspace/example_secrets` to `workspace/secrets`:
+3. Copy `workspace/example_secrets` to `workspace/secrets`:
 
 ```sh
 cp -r workspace/example_secrets workspace/secrets
 ```
 
-5. Optional: Create `.env` file:
+4. Optional: Create `.env` file:
 
 ```sh
 cp example.env .env
@@ -53,7 +47,7 @@ export OPENAI_API_KEY=sk-***
 3. Start the workspace using:
 
 ```sh
-ag ws up
+ag ws up dev
 ```
 
 Open [localhost:8000/docs](http://localhost:8000/docs) to view the FastAPI docs.
@@ -66,12 +60,4 @@ as ws down
 
 ## Next Steps:
 
-- [Run the Agent Api on AWS](https://docs.phidata.com/templates/agent-api/run-aws)
-- Read how to [manage the development application](https://docs.phidata.com/how-to/development-app)
-- Read how to [manage the production application](https://docs.phidata.com/how-to/production-app)
-- Read how to [add python libraries](https://docs.phidata.com/how-to/python-libraries)
-- Read how to [format & validate your code](https://docs.phidata.com/how-to/format-and-validate)
-- Read how to [manage secrets](https://docs.phidata.com/how-to/secrets)
-- Add [CI/CD](https://docs.phidata.com/how-to/ci-cd)
-- Add [database tables](https://docs.phidata.com/how-to/database-tables)
-- Read the [Agent Api guide](https://docs.phidata.com/templates/agent-api)
+- Run the Agent Api on AWS - Docs coming soon

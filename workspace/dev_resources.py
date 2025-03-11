@@ -36,8 +36,8 @@ container_env = {
     "RUNTIME_ENV": "dev",
     # Get the OpenAI API key from the local environment
     "OPENAI_API_KEY": getenv("OPENAI_API_KEY"),
-    "PHI_MONITORING": "True",
-    "PHI_API_KEY": getenv("PHI_API_KEY"),
+    "AGNO_MONITOR": "True",
+    "AGNO_API_KEY": getenv("AGNO_API_KEY"),
     # Database configuration
     "DB_HOST": dev_db.get_db_host(),
     "DB_PORT": dev_db.get_db_port(),
@@ -52,7 +52,7 @@ container_env = {
 
 # -*- FastApi running on port 8000:8000
 dev_fastapi = FastApi(
-    name=DEV_KEY,
+    name=f"{DEV_KEY}-api",
     enabled=True,
     image=dev_image,
     command="uvicorn api.main:app --reload",

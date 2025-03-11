@@ -1,7 +1,7 @@
 from pathlib import Path
 
 # Workspace name: only used for naming cloud resources
-WS_NAME = "agent-api"
+WS_NAME = "api-ws-template"
 
 # Path to the workspace root
 WS_ROOT = Path(__file__).parent.parent.resolve()

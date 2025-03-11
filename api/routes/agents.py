@@ -1,13 +1,13 @@
-from typing import Generator, Optional, List, Dict, Any
+from typing import Any, Dict, Generator, List, Optional
 
-from pydantic import BaseModel
-from fastapi import APIRouter
-from fastapi.responses import StreamingResponse
 from agno.agent import Agent
 from agno.storage.agent.session import AgentSession
+from fastapi import APIRouter
+from fastapi.responses import StreamingResponse
+from pydantic import BaseModel
 
+from agents.example import agent_storage, get_example_agent
 from api.routes.endpoints import endpoints
-from agents.example import get_example_agent, agent_storage
 from utils.log import logger
 
 ######################################################
@@ -86,7 +86,10 @@ def get_chat_history(body: ChatHistoryRequest):
     # Load the agent from the database
     agent.read_from_storage()
 
-    return agent.memory.get_messages()
+    if agent.memory:
+        return agent.memory.get_messages()
+    else:
+        return []
 
 
 class GetAgentRunRequest(BaseModel):

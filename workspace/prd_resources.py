@@ -1,31 +1,31 @@
 from os import getenv
 
 from agno.aws.app.fastapi import FastApi
-from agno.aws.resources import AwsResources
+from agno.aws.resource.ec2 import InboundRule, SecurityGroup
 from agno.aws.resource.ecs import EcsCluster
-from agno.aws.resource.ec2 import SecurityGroup, InboundRule
 from agno.aws.resource.rds import DbInstance, DbSubnetGroup
 from agno.aws.resource.reference import AwsReference
 from agno.aws.resource.s3 import S3Bucket
 from agno.aws.resource.secret import SecretsManager
-from agno.docker.resources import DockerResources
+from agno.aws.resources import AwsResources
 from agno.docker.resource.image import DockerImage
+from agno.docker.resources import DockerResources
 
 from workspace.settings import (
+    AWS_AZ1,
     BUILD_IMAGES,
     IMAGE_REPO,
     PRD_ENV,
     PRD_KEY,
+    SUBNET_IDS,
     WS_NAME,
     WS_ROOT,
-    SUBNET_IDS,
-    AWS_AZ1,
 )
 
 #
 # -*- Resources for the Production Environment
 #
-# Skip resource deletion when running `phi ws down` (set to True after initial deployment)
+# Skip resource deletion when running `ag ws down` (set to True after initial deployment)
 skip_delete: bool = False
 # Save resource outputs to workspace/outputs
 save_output: bool = True
@@ -181,8 +181,8 @@ container_env = {
     "RUNTIME_ENV": "prd",
     # Get the OpenAI API key from the local environment
     "OPENAI_API_KEY": getenv("OPENAI_API_KEY"),
-    "PHI_MONITORING": "True",
-    "PHI_API_KEY": getenv("PHI_API_KEY"),
+    "AGNO_MONITOR": "True",
+    "AGNO_API_KEY": getenv("AGNO_API_KEY"),
     # Database configuration
     "DB_HOST": AwsReference(prd_db.get_db_endpoint),
     "DB_PORT": AwsReference(prd_db.get_db_port),
@@ -192,7 +192,7 @@ container_env = {
     # Wait for database to be available before starting the application
     "WAIT_FOR_DB": True,
     # Migrate database on startup using alembic
-    # "MIGRATE_DB": ws_settings.prd_db_enabled,
+    # "MIGRATE_DB": True,
 }
 
 # -*- FastApi running on ECS
