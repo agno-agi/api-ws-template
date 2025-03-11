@@ -55,9 +55,9 @@ Open [localhost:8000/docs](http://localhost:8000/docs) to view the FastAPI docs.
 4. Stop the workspace using:
 
 ```sh
-as ws down
+as ws down dev
 ```
 
 ## Next Steps:
 
-- Run the Agent Api on AWS - Docs coming soon
+- Run the Api Workspace Template on AWS - Docs coming soon
